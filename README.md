@@ -103,8 +103,8 @@ http://localhost:8000/api/documentation
 
 ### 1. Clone repositori
 ```bash
-git clone https://github.com/vinijf01/SI-Pesantren.git
-cd SI-Pesantren
+git clone https://github.com/vinijf01/Website-Akademik.git
+cd Website-Akademik
 ```
 
 ### 2. Install dependensi
@@ -121,7 +121,7 @@ php artisan key:generate
 ### 4. Buat database & sesuaikan `.env`
 Edit bagian ini sesuai database lokal kamu:
 ```
-DB_DATABASE=si_pesantren
+DB_DATABASE=w_a_pesantren
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -149,7 +149,17 @@ php artisan serve
 
 ## 📸 Cuplikan UI
 
-> (Tambahkan gambar atau screenshot tampilan halaman di sini untuk menarik perhatian)
+- Tampilan Beranda
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a4c5ea04-b648-45ba-99ca-415b812bb403" />
+
+- Tampilan PPDB
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/40c0ab10-c2e5-41b0-ba6c-d002b7a1368b" />
+
+- Tampilan Login Admin
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8116cbff-d796-44e3-9d81-bcd7813cc294" />
+
+- DashBoard Admin (tampilan untuk dashboard orangtua dan walas hampir saya seperti gambar dibawah namun service nya lebih sederhana)
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28dbbe8d-327a-47b9-b49e-e69ea19d809e" />
 
 ---
 
