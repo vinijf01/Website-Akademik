@@ -45,7 +45,7 @@
                                 {{ $des_2 }}...
                             </td>
                             <td>
-                                <a href="{{ route('admin-keterangan-kelas.edit', $item->id) }}">
+                                <a href="{{ route('admin.keterangan-kelas.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>

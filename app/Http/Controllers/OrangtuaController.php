@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class OrangtuaController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     //raport index
     public function index()
     {
@@ -85,6 +80,6 @@ class OrangtuaController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect()->route('dashboard-parent')->with('success', 'Password berhasil diperbarui');
+        return redirect()->route('parent.dashboard')->with('success', 'Password berhasil diperbarui');
     }
 }

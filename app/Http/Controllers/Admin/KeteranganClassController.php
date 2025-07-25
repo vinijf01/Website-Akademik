@@ -9,11 +9,6 @@ use Illuminate\Support\Str;
 
 class KeteranganClassController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.keterangan_kelas.index', [
@@ -28,7 +23,7 @@ class KeteranganClassController extends Controller
         $keterangan_kelas = KetClass::find($id);
 
         if (!$keterangan_kelas) {
-            return redirect()->route('admin-keterangan-kelas.index')->with('error', 'Data Pesantren tidak ditemukan');
+            return redirect()->route('admin.keterangan-kelas.index')->with('error', 'Data Pesantren tidak ditemukan');
         }
 
         return view('admin.keterangan_kelas.edit', [
@@ -71,6 +66,6 @@ class KeteranganClassController extends Controller
         $keterangan_kelas->save();
 
         // Redirect
-        return redirect()->route('admin-keterangan-kelas.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.keterangan-kelas.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

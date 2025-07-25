@@ -11,10 +11,6 @@ use Illuminate\Support\Str;
 
 class ImageFasilitasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -56,7 +52,7 @@ class ImageFasilitasController extends Controller
         ]);
 
 
-        return redirect()->route('admin-image-fasilitas.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.image-fasilitas.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -64,7 +60,7 @@ class ImageFasilitasController extends Controller
         $fasilitas = Fasilitas::all();
         $data = ImageFasilitas::find($id);
         if (!$data) {
-            return redirect()->route('admin-image-fasilitas.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.image-fasilitas.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.image_fasilitas.edit', [
             'title' => 'Fasilitas',
@@ -100,7 +96,7 @@ class ImageFasilitasController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-image-fasilitas.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.image-fasilitas.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -114,6 +110,6 @@ class ImageFasilitasController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-image-fasilitas.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.image-fasilitas.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

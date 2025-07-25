@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class ProgramAkademikController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.program_akademik.index', [
@@ -59,7 +54,7 @@ class ProgramAkademikController extends Controller
             'spp' => $request->spp,
         ]);
 
-        return redirect()->route('admin-program-akademik.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.program-akademik.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -109,7 +104,7 @@ class ProgramAkademikController extends Controller
         ]);
 
         $data->save();
-        return redirect()->route('admin-program-akademik.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.program-akademik.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -123,6 +118,6 @@ class ProgramAkademikController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-program-akademik.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.program-akademik.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

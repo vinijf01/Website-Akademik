@@ -12,7 +12,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('admin-ppdb-cara-pendaftaran.update', $cara_pendaftaran->id) }}">
+                    action="{{ route('admin.ppdb-cara-pendaftaran.update', $cara_pendaftaran->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-ppdb-cara-pendaftaran.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin.ppdb-cara-pendaftaran.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

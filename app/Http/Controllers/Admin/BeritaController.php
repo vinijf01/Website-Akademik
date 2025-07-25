@@ -9,10 +9,6 @@ use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -53,14 +49,14 @@ class BeritaController extends Controller
         ]);
 
 
-        return redirect()->route('admin-berita.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.berita.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
     {
         $data = Berita::find($id);
         if (!$data) {
-            return redirect()->route('admin-berita.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.berita.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.berita.edit', [
             'title' => 'Berita',
@@ -99,7 +95,7 @@ class BeritaController extends Controller
         ]);
 
         $data->save();
-        return redirect()->route('admin-berita.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.berita.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -113,6 +109,6 @@ class BeritaController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-berita.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.berita.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

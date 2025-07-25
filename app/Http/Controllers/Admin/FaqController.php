@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $faq = Faq::get();
@@ -37,7 +32,7 @@ class FaqController extends Controller
 
         Faq::create($request->all());
 
-        return redirect()->route('admin-faq.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.faq.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -54,13 +49,13 @@ class FaqController extends Controller
     {
         $data = Faq::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-faq.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.faq.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Faq::find($id);
         $data->delete();
-        return redirect()->route('admin-faq.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.faq.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

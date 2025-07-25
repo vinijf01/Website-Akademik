@@ -33,40 +33,6 @@
         </div>
     </section>
 
-    {{-- <section id="data-admin">
-        <div class="row">
-            <div class="col-lg-6 col-md-3 order-0 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                                <i class='bx bxs-city' style="color:rgb(117, 233, 117); font-size:2em;"></i>
-                            </div>
-                        </div>
-                        <span class="fw-semibold d-block mb-1">Program Akademik</span>
-                        <h3 class="card-title mb-2">{{ $program_akademik }} Program</h3>
-                        <small class="text-success fw-semibold"><a href="{{ route('admin-program-akademik.index') }}">
-                                Details <i class="fa-solid fa-angles-right"></i></a></small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-3 order-0 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between">
-                            <div class="avatar flex-shrink-0">
-                                <i class="bx bxs-user" style="color:rgb(117, 233, 117); font-size:2em;"></i>
-                            </div>
-                        </div>
-                        <span class="fw-semibold d-block mb-1">Admin</span>
-                        <h3 class="card-title mb-2">{{ $user }} admin</h3>
-                        <small class="text-success fw-semibold"><a href=""> Details <i
-                                    class="fa-solid fa-angles-right"></i></a></small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
     <script>
         function display_ct5() {

@@ -11,7 +11,7 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('walas-hafalan-santri.store') }}">
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('walas.hafalan-santri.store') }}">
                     @csrf
                     @include('partials.messages')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -45,7 +45,7 @@
                                 aria-describedby="helpId">
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('walas-hafalan-santri.index') }}" class="btn btn-danger">Batal</a>
+                        <a href="{{ route('walas.hafalan-santri.index') }}" class="btn btn-danger">Batal</a>
                     </div>
             </div>
             </form>

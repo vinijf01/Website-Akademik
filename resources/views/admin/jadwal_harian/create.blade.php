@@ -11,7 +11,7 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin-jadwal-harian.store') }}"
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin.jadwal-harian.store') }}"
                     novalidate>
                     @csrf
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-jadwal-harian.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin.jadwal-harian.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

@@ -20,13 +20,13 @@
 
         <div class="menu-inner-shadow"></div>
         <li class="menu-item {{ $active === 'raport_santri' ? 'active' : '' }}">
-            <a href="{{ route('progress-santri.index') }}" class="menu-link">
+            <a href="{{ route('parent.progress-santri.index') }}" class="menu-link">
                 <i class='menu-icon bx bxs-book-open'></i>
                 <div data-i18n="Basic">Raport</div>
             </a>
         </li>
         <li class="menu-item {{ $active === 'hafalan_santri' ? 'active' : '' }}">
-            <a href="{{ route('progress-santri.create') }}" class="menu-link">
+            <a href="{{ route('parent.progress-santri.create') }}" class="menu-link">
                 <i class='menu-icon bx bxs-book-reader'></i>
                 <div data-i18n="Basic">Hafalan</div>
             </a>

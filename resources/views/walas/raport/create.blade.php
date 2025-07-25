@@ -12,7 +12,7 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('walas-raport-santri.store') }}"
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('walas.raport-santri.store') }}"
                     enctype="multipart/form-data">
                     @csrf
                     @include('partials.messages')
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('walas-raport-santri.index') }}" class="btn btn-danger">Batal</a>
+                        <a href="{{ route('walas.raport-santri.index') }}" class="btn btn-danger">Batal</a>
                     </div>
             </div>
             </form>

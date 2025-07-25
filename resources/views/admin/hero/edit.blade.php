@@ -13,7 +13,7 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin-hero.update', $hero->id) }}"
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin.hero.update', $hero->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -76,7 +76,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-hero.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin.hero.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

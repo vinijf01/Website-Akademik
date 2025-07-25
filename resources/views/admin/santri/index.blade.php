@@ -9,7 +9,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('admin-data-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('admin.data-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah {{ $title }}</a>
                 </div>
                 @include('partials.messages')
@@ -66,14 +66,14 @@
                                     </script>
                                 @endif
                             </td>
-                            <td>{{ $item->programAkademik->nama_program }}</td>
+                            <td>{{ $item->programAkademik->nama_program ?? '' }}</td>
                             <td>{{ $item->status }}</td>
                             <td>
-                                <a href="{{ route('admin-data-santri.edit', $item->id) }}">
+                                <a href="{{ route('admin.data-santri.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
-                                <a href="{{ route('data-santri.detail', $item->id) }}">
+                                <a href="{{ route('admin.data-santri.detail', $item->id) }}">
                                     <i class='bx bxs-show crud-icon' style="font-size: 1.5em; color:blue;"
                                         title="read"></i>
                                 </a>
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-data-santri.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('admin.data-santri.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>
@@ -133,7 +133,7 @@
 
                         if (confirmation) {
                             // Jika pengguna mengonfirmasi, arahkan ke tautan
-                            window.location.href = "{{ route('alumni.cetakLaporan') }}";
+                            window.location.href = "{{ route('admin.alumni.cetakLaporan') }}";
                         } else {
                             // Jika pengguna membatalkan, tidak lakukan apa-apa
                         }
@@ -158,7 +158,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $file_laporan->T_A }}</td>
                             <td>
-                                <a href="{{ route('lihat-laporan', ['filename' => $file_laporan->laporan]) }}"
+                                <a href="{{ route('admin.lihat-laporan', ['filename' => $file_laporan->laporan]) }}"
                                     target="_blank">Lihat Laporan</a>
                             </td>
                         </tr>

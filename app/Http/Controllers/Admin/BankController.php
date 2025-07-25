@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class BankController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $bank = Bank::latest()->first();
@@ -39,6 +34,6 @@ class BankController extends Controller
     {
         $data = Bank::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-ppdb-bank.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-bank.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

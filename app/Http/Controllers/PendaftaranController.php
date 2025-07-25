@@ -9,6 +9,44 @@ use Illuminate\Support\Str;
 
 class PendaftaranController extends Controller
 {
+    /**
+     * @OA\Post(
+     *     path="/pendaftaran",
+     *     tags={"Pendaftaran"},
+     *     summary="Mendaftar calon santri baru",
+     *     operationId="pendaftaranSantri",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"nama_lengkap", "jenis_kelamin", "usia", "id_program", "no_wa", "pasphoto", "raport", "sk_sekolah", "akta", "kk", "ktp", "bukti_pembayaran"},
+     *                 @OA\Property(property="nama_lengkap", type="string", example="Ahmad Fauzan"),
+     *                 @OA\Property(property="jenis_kelamin", type="string", enum={"Laki-laki", "Perempuan"}),
+     *                 @OA\Property(property="usia", type="integer", example=15),
+     *                 @OA\Property(property="id_program", type="integer", example=1),
+     *                 @OA\Property(property="no_wa", type="string", example="081234567890"),
+     *                 
+     *                 @OA\Property(property="pasphoto", type="string", format="binary"),
+     *                 @OA\Property(property="raport", type="string", format="binary"),
+     *                 @OA\Property(property="sk_sekolah", type="string", format="binary"),
+     *                 @OA\Property(property="akta", type="string", format="binary"),
+     *                 @OA\Property(property="kk", type="string", format="binary"),
+     *                 @OA\Property(property="ktp", type="string", format="binary"),
+     *                 @OA\Property(property="bukti_pembayaran", type="string", format="binary")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=302,
+     *         description="Redirect ke halaman PPDB dengan pesan berhasil"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Gagal menyimpan data"
+     *     )
+     * )
+     */
     public function store(Request $request)
     {
         // Validasi file

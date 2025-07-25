@@ -11,7 +11,7 @@
         </div>
         <div class="table-responsive text-nowrap">
             <div class="row">
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin-faq.store') }}" novalidate>
+                <form class="needs-validation forms-sample" method="POST" action="{{ route('admin.faq.store') }}" novalidate>
                     @csrf
                     <div class="col-lg-6 offset-2 col-md-4">
                         @include('partials.messages')
@@ -27,7 +27,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('admin-faq.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('admin.faq.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

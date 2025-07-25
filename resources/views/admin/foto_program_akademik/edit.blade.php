@@ -14,7 +14,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('admin-foto-kegiatan-program.update', $foto_program_akademik->id) }}"
+                    action="{{ route('admin.foto-kegiatan-program.update', $foto_program_akademik->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -45,7 +45,7 @@
                                 alt="Current Image" style="max-width: 100px; margin-top: 10px;">
                         </div><br>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('admin-foto-kegiatan-program.index') }}" class="btn btn-danger">Batal</a>
+                        <a href="{{ route('admin.foto-kegiatan-program.index') }}" class="btn btn-danger">Batal</a>
                     </div>
             </div>
             </form>

@@ -96,7 +96,7 @@
                         @endforeach
 
                         <div class="mb-5">
-                            <a href="{{ route('walas-raport-santri.index') }}" class="btn btn-danger">Kembali</a>
+                            <a href="{{ route('walas.raport-santri.index') }}" class="btn btn-danger">Kembali</a>
                         </div>
                     </div>
                 </form>

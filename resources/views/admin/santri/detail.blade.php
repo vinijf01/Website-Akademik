@@ -167,7 +167,7 @@
 
 
                         <div class="mb-5">
-                            <a href="{{ route('admin-data-santri.index') }}" class="btn btn-danger">Kembali</a>
+                            <a href="{{ route('admin.data-santri.index') }}" class="btn btn-danger">Kembali</a>
                         </div>
                     </div>
                 </form>

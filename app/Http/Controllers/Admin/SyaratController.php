@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class SyaratController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.syarat.index', [
@@ -34,7 +29,7 @@ class SyaratController extends Controller
     {
         SyaratPPDB::create($request->all());
 
-        return redirect()->route('admin-ppdb-syarat.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.ppdb-syarat.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -51,13 +46,13 @@ class SyaratController extends Controller
     {
         $data = SyaratPPDB::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-ppdb-syarat.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-syarat.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = SyaratPPDB::find($id);
         $data->delete();
-        return redirect()->route('admin-ppdb-syarat.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ppdb-syarat.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

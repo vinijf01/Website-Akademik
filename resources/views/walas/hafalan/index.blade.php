@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('walas-hafalan-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('walas.hafalan-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
@@ -38,7 +38,7 @@
                             <td>{{ $item->ayat }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
-                                <a href="{{ route('walas-hafalan-santri.edit', $item->id) }}">
+                                <a href="{{ route('walas.hafalan-santri.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('walas-hafalan-santri.destroy', $item->id) }}"
+                                        <form action="{{ route('walas.hafalan-santri.destroy', $item->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')

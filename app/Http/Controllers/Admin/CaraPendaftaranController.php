@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class CaraPendaftaranController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.cara_pendaftaran.index', [
@@ -37,7 +32,7 @@ class CaraPendaftaranController extends Controller
         ]);
         CaraPendaftaran::create($request->all());
 
-        return redirect()->route('admin-ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -57,13 +52,13 @@ class CaraPendaftaranController extends Controller
             'deskripsi' => 'required'
         ]);
         $data->update($request->all());
-        return redirect()->route('admin-ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = CaraPendaftaran::find($id);
         $data->delete();
-        return redirect()->route('admin-ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ppdb-cara-pendaftaran.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

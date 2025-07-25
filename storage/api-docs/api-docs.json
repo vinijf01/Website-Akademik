@@ -1,0 +1,358 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API SI Pesantren",
+        "description": "Dokumentasi API untuk Sistem Informasi Pesantren",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Localhost"
+        }
+    ],
+    "paths": {
+        "/admin/ppdb-calon-santri/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Calon Santri"
+                ],
+                "summary": "Detail calon santri",
+                "operationId": "9d1f7d86213559afa1a1f4e8c000581e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Calon Santri",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sukses menampilkan detail calon santri"
+                    },
+                    "404": {
+                        "description": "Calon santri tidak ditemukan"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/ppdb-calon-santri/cetak-laporan-tahunan": {
+            "get": {
+                "tags": [
+                    "Calon Santri"
+                ],
+                "summary": "Cetak laporan tahunan calon santri",
+                "operationId": "a0022babc517a05559b4e918c18c6564",
+                "responses": {
+                    "200": {
+                        "description": "PDF berhasil dibuat"
+                    },
+                    "400": {
+                        "description": "Data tahun ajaran belum tersedia"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/data-santri": {
+            "get": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Menampilkan semua data santri",
+                "operationId": "efa4fa5d7973d5378bff292e32ffd347",
+                "responses": {
+                    "200": {
+                        "description": "Sukses mengambil data santri"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Menyimpan data santri baru",
+                "operationId": "4c0c26f197ce117980fa2929382ec10b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id_program",
+                                    "nama_lengkap",
+                                    "jenis_kelamin",
+                                    "usia",
+                                    "no_wa",
+                                    "TA"
+                                ],
+                                "properties": {
+                                    "id_program": {
+                                        "type": "integer"
+                                    },
+                                    "nama_lengkap": {
+                                        "type": "string"
+                                    },
+                                    "jenis_kelamin": {
+                                        "type": "string"
+                                    },
+                                    "usia": {
+                                        "type": "integer"
+                                    },
+                                    "no_wa": {
+                                        "type": "string"
+                                    },
+                                    "TA": {
+                                        "type": "string",
+                                        "example": "2024/2025"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Data santri berhasil ditambahkan"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/data-santri/create": {
+            "get": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Menampilkan form tambah santri",
+                "operationId": "fbb8e822d3fe38659741789e4a3e211d",
+                "responses": {
+                    "200": {
+                        "description": "Form tambah santri"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/data-santri/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Menampilkan detail santri",
+                "operationId": "513feab172e9e7326f6da2b607342776",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Santri",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Berhasil menampilkan detail santri"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/data-santri/{id}": {
+            "delete": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Menghapus data santri",
+                "operationId": "366d069aa42ebf375c191b041b020ce1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID Santri",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Data santri berhasil dihapus"
+                    },
+                    "404": {
+                        "description": "Data santri tidak ditemukan"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/admin/alumni/cetak-laporan-tahunan": {
+            "get": {
+                "tags": [
+                    "Santri"
+                ],
+                "summary": "Mencetak PDF laporan tahunan alumni",
+                "operationId": "de3ce4004fd3739ca69705d4489c615b",
+                "responses": {
+                    "200": {
+                        "description": "PDF berhasil dibuat dan disimpan"
+                    },
+                    "400": {
+                        "description": "Tahun Ajaran belum tersedia"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/pendaftaran": {
+            "post": {
+                "tags": [
+                    "Pendaftaran"
+                ],
+                "summary": "Mendaftar calon santri baru",
+                "operationId": "pendaftaranSantri",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nama_lengkap",
+                                    "jenis_kelamin",
+                                    "usia",
+                                    "id_program",
+                                    "no_wa",
+                                    "pasphoto",
+                                    "raport",
+                                    "sk_sekolah",
+                                    "akta",
+                                    "kk",
+                                    "ktp",
+                                    "bukti_pembayaran"
+                                ],
+                                "properties": {
+                                    "nama_lengkap": {
+                                        "type": "string",
+                                        "example": "Ahmad Fauzan"
+                                    },
+                                    "jenis_kelamin": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Laki-laki",
+                                            "Perempuan"
+                                        ]
+                                    },
+                                    "usia": {
+                                        "type": "integer",
+                                        "example": 15
+                                    },
+                                    "id_program": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "no_wa": {
+                                        "type": "string",
+                                        "example": "081234567890"
+                                    },
+                                    "pasphoto": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "raport": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "sk_sekolah": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "akta": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "kk": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "ktp": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "bukti_pembayaran": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redirect ke halaman PPDB dengan pesan berhasil"
+                    },
+                    "400": {
+                        "description": "Gagal menyimpan data"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Calon Santri",
+            "description": "API untuk mengelola data calon santri"
+        },
+        {
+            "name": "Santri",
+            "description": "API untuk mengelola data santri"
+        },
+        {
+            "name": "Pendaftaran",
+            "description": "Pendaftaran"
+        }
+    ]
+}

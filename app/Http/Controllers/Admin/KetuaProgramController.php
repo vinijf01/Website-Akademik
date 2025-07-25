@@ -11,10 +11,6 @@ use Illuminate\Support\Str;
 
 class KetuaProgramController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -60,7 +56,7 @@ class KetuaProgramController extends Controller
         ]);
 
 
-        return redirect()->route('admin-ketua-program.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.ketua-program.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -69,7 +65,7 @@ class KetuaProgramController extends Controller
 
         $data = KetuaProgram::find($id);
         if (!$data) {
-            return redirect()->route('admin-ketua-program.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.ketua-program.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.ketua_program.edit', [
             'title' => 'Ketua Program Akademik',
@@ -106,7 +102,7 @@ class KetuaProgramController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-ketua-program.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ketua-program.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -120,6 +116,6 @@ class KetuaProgramController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-ketua-program.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ketua-program.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

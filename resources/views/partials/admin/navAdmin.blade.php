@@ -18,7 +18,7 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/logo/1favicon.png') }}" alt
+                        <img src="{{ asset('assets/img/logo/LogoABA.png') }}" alt
                             class="w-px-40 h-auto rounded-circle" />
                     </div>
                 </a>
@@ -28,7 +28,7 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('assets/img/logo/1favicon.png') }}" alt
+                                        <img src="{{ asset('assets/img/logo/LogoABA.png') }}" alt
                                             class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </div>
@@ -43,16 +43,13 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('parent-logout.perform') }}">
-                            <i class='menu-icon bx bx-door-open me-2'></i>
-                            <span class="align-middle">Log Out</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{ route('update-password-walas') }}">
-                            <i class='menu-icon bx bx-key me-2'></i>
-                            <span class="align-middle">Ubah Password</span>
-                        </a>
+                        <form action="{{ route('admin.logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class='menu-icon bx bx-door-open me-2'></i>
+                                <span class="align-middle">Log Out Admin</span>
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </li>

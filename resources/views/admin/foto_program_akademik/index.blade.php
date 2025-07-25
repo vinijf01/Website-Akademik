@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('admin-foto-kegiatan-program.create') }}" class="btn btn-success"><i
+                    <a href="{{ route('admin.foto-kegiatan-program.create') }}" class="btn btn-success"><i
                             class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah Foto Kegitan</a>
                 </div>
                 @include('partials.messages')
@@ -35,7 +35,7 @@
                             <td>{{ $item->keterangan }}</td>
                             <td>{{ $item->program->nama_program }}</td>
                             <td>
-                                <a href="{{ route('admin-foto-kegiatan-program.edit', $item->id) }}">
+                                <a href="{{ route('admin.foto-kegiatan-program.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-foto-kegiatan-program.destroy', $item->id) }}"
+                                        <form action="{{ route('admin.foto-kegiatan-program.destroy', $item->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')

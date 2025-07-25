@@ -18,7 +18,7 @@
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/logo/LogoABA.png') }}" alt
+                        <img src="{{ asset('assets/img/logo/1favicon.png') }}" alt
                             class="w-px-40 h-auto rounded-circle" />
                     </div>
                 </a>
@@ -28,7 +28,7 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('assets/img/logo/LogoABA.png') }}" alt
+                                        <img src="{{ asset('assets/img/logo/1favicon.png') }}" alt
                                             class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </div>
@@ -43,9 +43,20 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout.perform') }}">
+                        <a class="dropdown-item" href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class='menu-icon bx bx-door-open me-2'></i>
                             <span class="align-middle">Log Out</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('walas.update-password') }}">
+                            <i class='menu-icon bx bx-key me-2'></i>
+                            <span class="align-middle">Ubah Password</span>
                         </a>
                     </li>
                 </ul>

@@ -7,23 +7,19 @@ use App\Models\Santri;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Contrroller
+class AdminController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function dashboard()
     {
-        $user = Santri::count();
-        $program_akademik = ProgramAkademik::count();
+        $totalSantri = Santri::count();
+        $totalProgram = ProgramAkademik::count();
 
         return view('admin.index', [
             'title' => 'Dashboard',
             'active' => 'admin',
-            'user' => $user,
-            'program_akademik' => $program_akademik,
+            'totalSantri' => $totalSantri,
+            'totalProgram' => $totalProgram,
         ]);
     }
 

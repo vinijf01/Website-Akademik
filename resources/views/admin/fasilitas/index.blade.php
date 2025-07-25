@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('admin-fasilitas.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('admin.fasilitas.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
@@ -42,7 +42,7 @@
                                 {{ $isi }}...
                             </td>
                             <td>
-                                <a href="{{ route('admin-fasilitas.edit', $item->id) }}">
+                                <a href="{{ route('admin.fasilitas.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-fasilitas.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('admin.fasilitas.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>

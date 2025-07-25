@@ -97,7 +97,7 @@ class RaportController extends Controller
         ]);
 
 
-        return redirect()->route('walas-raport-santri.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('walas.raport-santri.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     private function storeFile($file, $folder)
@@ -140,7 +140,7 @@ class RaportController extends Controller
             $raport->delete();
         }
 
-        return redirect()->route('walas-raport-santri.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('walas.raport-santri.index')->with('success', 'Data Berhasil Dihapus');
     }
 
     private function deleteFileIfExists($filename, $directory)
@@ -191,9 +191,9 @@ class RaportController extends Controller
                 }
             }
 
-            return redirect()->route('walas-raport-santri.index')->with('success', 'Data Berhasil Disimpan');
+            return redirect()->route('walas.raport-santri.index')->with('success', 'Data Berhasil Disimpan');
         } catch (\Exception $e) {
-            return redirect()->route('walas-raport-santri.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return redirect()->route('walas.raport-santri.index')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 }

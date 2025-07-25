@@ -38,7 +38,7 @@
                         <td>{{ $tentang_pesantren->keterangan_video }}</td>
                         <td>{{ $tentang_pesantren->link_video }}</td>
                         <td>
-                            <a href="{{ route('admin-tentang-pesantren.edit', $tentang_pesantren->id) }}">
+                            <a href="{{ route('admin.tentang-pesantren.edit', $tentang_pesantren->id) }}">
                                 <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;" title="Edit"></i>
                             </a>
                         </td>
@@ -57,7 +57,7 @@
                     <h5>{{ $title2 }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('admin-tentang-pesantren.create') }}" class="btn btn-success"><i
+                    <a href="{{ route('admin.tentang-pesantren.create') }}" class="btn btn-success"><i
                             class='bx bx-plus-circle' style="font-size: 1.5em"></i> Tambah
                         {{ $title2 }}</a>
                 </div>
@@ -79,7 +79,7 @@
                             <td>{{ $item->jumlah }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td>
-                                <a href="{{ route('admin-tentang-pesantren.edit_dk', $item->id) }}">
+                                <a href="{{ route('admin.tentang-pesantren.edit_dk', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Perbarui"></i>
                                 </a>
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-tentang-pesantren.destroy', $item->id) }}"
+                                        <form action="{{ route('admin.tentang-pesantren.destroy', $item->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')

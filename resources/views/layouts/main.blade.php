@@ -206,7 +206,7 @@
                             </div>
                             <div class="bd-header-bottom-right d-flex justify-content-end align-items-center">
                                 <div class="bd-header-btn d-xl-block">
-                                    <a href="{{ route('parent-login') }}" class="bd-btn" target="_blank">
+                                    <a href="{{ route('login') }}" class="bd-btn" target="_blank">
                                         <span class="bd-btn-inner">
                                             <span class="bd-btn-normal">Masuk</span>
                                             <span class="bd-btn-hover">Masuk</span>

@@ -26,7 +26,7 @@
                         <td>{{ $bank->nama_rekening }}</td>
                         <td>{{ $bank->nomor_rekening }}</td>
                         <td>
-                            <a href="{{ route('admin-ppdb-bank.edit', $bank->id) }}">
+                            <a href="{{ route('admin.ppdb-bank.edit', $bank->id) }}">
                                 <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;" title="Edit"></i>
                             </a>
                         </td>

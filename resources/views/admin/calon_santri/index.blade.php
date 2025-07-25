@@ -62,11 +62,11 @@
                             <td>{{ $item->program->nama_program }}</td>
                             <td>{{ $item->status }}</td>
                             <td>
-                                <a href="{{ route('admin-ppdb-calon-santri.edit', $item->id) }}">
+                                <a href="{{ route('admin.ppdb-calon-santri.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
-                                <a href="{{ route('ppdb-calon-santri.detail', $item->id) }}">
+                                <a href="{{ route('admin.ppdb-calon-santri.detail', $item->id) }}">
                                     <i class='bx bxs-show crud-icon' style="font-size: 1.5em; color:blue;"
                                         title="read"></i>
                                 </a>
@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-ppdb-calon-santri.destroy', $item->id) }}"
+                                        <form action="{{ route('admin.ppdb-calon-santri.destroy', $item->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -129,7 +129,7 @@
 
                         if (confirmation) {
                             // Jika pengguna mengonfirmasi, arahkan ke tautan
-                            window.location.href = "{{ route('ppdb-calon-santri.cetakLaporan') }}";
+                            window.location.href = "{{ route('admin.ppdb-calon-santri.cetakLaporan') }}";
                         } else {
                             // Jika pengguna membatalkan, tidak lakukan apa-apa
                         }
@@ -154,7 +154,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $file_laporan->T_A }}</td>
                             <td>
-                                <a href="{{ route('lihat-laporan', ['filename' => $file_laporan->laporan]) }}"
+                                <a href="{{ route('admin.lihat-laporan', ['filename' => $file_laporan->laporan]) }}"
                                     target="_blank">Lihat Laporan</a>
                             </td>
                         </tr>

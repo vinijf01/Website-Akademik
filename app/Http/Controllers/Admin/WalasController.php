@@ -11,11 +11,6 @@ use Illuminate\Support\Str;
 
 class WalasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.walas.index', [
@@ -58,7 +53,7 @@ class WalasController extends Controller
             ]);
         }
 
-        return redirect()->route('admin-wali-kelas.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.wali-kelas.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -81,7 +76,7 @@ class WalasController extends Controller
 
         // Pastikan data ditemukan
         if (!$waliKelas) {
-            return redirect()->route('admin-wali-kelas.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.wali-kelas.index')->with('error', 'Data tidak ditemukan');
         }
 
         // Generate id_walas baru
@@ -106,7 +101,7 @@ class WalasController extends Controller
             ]);
         }
 
-        return redirect()->route('admin-wali-kelas.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.wali-kelas.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -116,7 +111,7 @@ class WalasController extends Controller
 
         // Pastikan data ditemukan
         if (!$waliKelas) {
-            return redirect()->route('admin-wali-kelas.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.wali-kelas.index')->with('error', 'Data tidak ditemukan');
         }
 
         // Hapus data wali kelas
@@ -128,6 +123,6 @@ class WalasController extends Controller
             $user->delete();
         }
 
-        return redirect()->route('admin-wali-kelas.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.wali-kelas.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

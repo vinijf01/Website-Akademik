@@ -43,7 +43,7 @@
                         @yield('content')
                     </div>
 
-                    @include('partials.admin.footer')
+                    @include('partials.footer')
 
                     <div class="content-backdrop fade"></div>
                 </div>

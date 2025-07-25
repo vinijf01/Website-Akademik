@@ -35,6 +35,30 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web')
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(function () {
+                    Route::get('/login', [\App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm'])->name('login');
+                    Route::post('/login', [\App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('login.request');
+                });
+
+            Route::middleware(['web', 'auth'])
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(base_path('routes/admin.php'));
+
+
+            Route::middleware(['web', 'auth'])
+                ->prefix('parent')
+                ->name('parent.')
+                ->group(base_path('routes/orangtua.php'));
+
+            Route::middleware(['web', 'auth'])
+                ->prefix('walas')
+                ->name('walas.')
+                ->group(base_path('routes/walas.php'));
         });
     }
 }

@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class JadwalHarianController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $jadwal_harian = JadwalKegiatanProgram::with('program')
@@ -45,7 +40,7 @@ class JadwalHarianController extends Controller
 
         JadwalKegiatanProgram::create($request->all());
 
-        return redirect()->route('admin-jadwal-harian.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.jadwal-harian.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -66,13 +61,13 @@ class JadwalHarianController extends Controller
     {
         $data = JadwalKegiatanProgram::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-jadwal-harian.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.jadwal-harian.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = JadwalKegiatanProgram::find($id);
         $data->delete();
-        return redirect()->route('admin-jadwal-harian.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.jadwal-harian.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

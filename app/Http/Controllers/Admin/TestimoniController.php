@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $testimoni = Testimoni::get();
@@ -37,7 +32,7 @@ class TestimoniController extends Controller
 
         Testimoni::create($request->all());
 
-        return redirect()->route('admin-testimoni.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.testimoni.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -54,13 +49,13 @@ class TestimoniController extends Controller
     {
         $data = Testimoni::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-testimoni.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.testimoni.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Testimoni::find($id);
         $data->delete();
-        return redirect()->route('admin-testimoni.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.testimoni.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

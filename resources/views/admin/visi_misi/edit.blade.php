@@ -12,7 +12,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('admin-visi-misi.update', $visi_misi->id) }}">
+                    action="{{ route('admin.visi-misi.update', $visi_misi->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -32,7 +32,7 @@
                                 aria-describedby="helpId" value="{{ old('motto', $visi_misi->motto) }}" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('admin-visi-misi.index') }}" class="btn btn-danger">Batal</a>
+                        <a href="{{ route('admin.visi-misi.index') }}" class="btn btn-danger">Batal</a>
                     </div>
             </div>
             </form>

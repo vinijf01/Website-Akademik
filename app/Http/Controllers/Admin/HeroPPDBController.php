@@ -9,10 +9,6 @@ use Illuminate\Support\Str;
 
 class HeroPPDBController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -30,7 +26,7 @@ class HeroPPDBController extends Controller
         $hero_ppdb = HeroPPDB::find($id);
 
         if (!$hero_ppdb) {
-            return redirect()->route('admin-hero-ppdb.index')->with('error', 'Data Hero tidak ditemukan');
+            return redirect()->route('admin.hero-ppdb.index')->with('error', 'Data Hero tidak ditemukan');
         }
 
         return view('admin.hero_ppdb.edit', [
@@ -70,6 +66,6 @@ class HeroPPDBController extends Controller
         $hero->save();
 
         // Redirect
-        return redirect()->route('admin-hero-ppdb.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.hero-ppdb.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

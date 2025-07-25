@@ -42,8 +42,8 @@
                             </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Program Akademik</span>
-                        <h3 class="card-title mb-2">{{ $program_akademik }} Program</h3>
-                        <small class="text-success fw-semibold"><a href="{{ route('admin-program-akademik.index') }}">
+                        <h3 class="card-title mb-2">{{ $totalProgram }} Program</h3>
+                        <small class="text-success fw-semibold"><a href="{{ route('admin.program-akademik.index') }}">
                                 Details <i class="fa-solid fa-angles-right"></i></a></small>
                     </div>
                 </div>
@@ -57,8 +57,8 @@
                             </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Total Santri</span>
-                        <h3 class="card-title mb-2">{{ $user }} Santri</h3>
-                        <small class="text-success fw-semibold"><a href="{{ route('admin-data-santri.index') }}"> Details <i
+                        <h3 class="card-title mb-2">{{ $totalSantri }} Santri</h3>
+                        <small class="text-success fw-semibold"><a href="{{ route('admin.data-santri.index') }}"> Details <i
                                     class="fa-solid fa-angles-right"></i></a></small>
                     </div>
                 </div>

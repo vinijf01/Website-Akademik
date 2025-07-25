@@ -14,15 +14,26 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use TCPDF;
 
-
+/**
+ * @OA\Tag(
+ *     name="Santri",
+ *     description="API untuk mengelola data santri"
+ * )
+ */
 class SantriController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
-
+    /**
+     * @OA\Get(
+     *     path="/admin/data-santri",
+     *     tags={"Santri"},
+     *     summary="Menampilkan semua data santri",
+     *     security={{"sanctum": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Sukses mengambil data santri"
+     *     )
+     * )
+     */
     public function index()
     {
         $santri = Santri::with('programAkademik', 'kelas')
@@ -40,7 +51,18 @@ class SantriController extends Controller
         ]);
     }
 
-
+    /**
+     * @OA\Get(
+     *     path="/admin/data-santri/create",
+     *     tags={"Santri"},
+     *     summary="Menampilkan form tambah santri",
+     *     security={{"sanctum": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Form tambah santri"
+     *     )
+     * )
+     */
     public function create()
     {
         $program_akademik = ProgramAkademik::get();
@@ -50,7 +72,30 @@ class SantriController extends Controller
             'program_akademik' => $program_akademik
         ]);
     }
-
+    /**
+     * @OA\Post(
+     *     path="/admin/data-santri",
+     *     tags={"Santri"},
+     *     summary="Menyimpan data santri baru",
+     *     security={{"sanctum": {}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"id_program", "nama_lengkap", "jenis_kelamin", "usia", "no_wa", "TA"},
+     *             @OA\Property(property="id_program", type="integer"),
+     *             @OA\Property(property="nama_lengkap", type="string"),
+     *             @OA\Property(property="jenis_kelamin", type="string"),
+     *             @OA\Property(property="usia", type="integer"),
+     *             @OA\Property(property="no_wa", type="string"),
+     *             @OA\Property(property="TA", type="string", example="2024/2025")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Data santri berhasil ditambahkan"
+     *     )
+     * )
+     */
     public function store(Request $request)
     {
 
@@ -73,7 +118,7 @@ class SantriController extends Controller
 
         ]);
 
-        return redirect()->route('admin-data-santri.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.data-santri.index')->with('success', 'Data Berhasil Disimpan');
     }
 
 
@@ -173,7 +218,7 @@ class SantriController extends Controller
                 ]);
             }
         }
-        return redirect()->route('admin-data-santri.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.data-santri.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     private function storeFile($file, $folder)
@@ -196,7 +241,25 @@ class SantriController extends Controller
             Storage::disk('public')->delete($filepath);
         }
     }
-
+    /**
+     * @OA\Get(
+     *     path="/admin/data-santri/detail/{id}",
+     *     tags={"Santri"},
+     *     summary="Menampilkan detail santri",
+     *     security={{"sanctum": {}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="ID Santri",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Berhasil menampilkan detail santri"
+     *     )
+     * )
+     */
     public function detail($id)
     {
         $data = Santri::find($id);
@@ -210,7 +273,29 @@ class SantriController extends Controller
             'kelas' =>  $kelas,
         ]);
     }
-
+    /**
+     * @OA\Delete(
+     *     path="/admin/data-santri/{id}",
+     *     tags={"Santri"},
+     *     summary="Menghapus data santri",
+     *     security={{"sanctum": {}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="ID Santri",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Data santri berhasil dihapus"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Data santri tidak ditemukan"
+     *     )
+     * )
+     */
     public function destroy($id)
     {
         // Temukan data santri berdasarkan ID
@@ -218,7 +303,7 @@ class SantriController extends Controller
 
         // Pastikan data ditemukan
         if (!$santri) {
-            return redirect()->route('admin-data-santri.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.data-santri.index')->with('error', 'Data tidak ditemukan');
         }
 
         // Temukan dan hapus data user yang memiliki id_santri_fk yang sama dengan id_santri
@@ -238,7 +323,7 @@ class SantriController extends Controller
         // Hapus data santri
         $santri->delete();
 
-        return redirect()->route('admin-data-santri.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.data-santri.index')->with('success', 'Data Berhasil Dihapus');
     }
 
     public function raport_wustho()
@@ -293,7 +378,22 @@ class SantriController extends Controller
         return $tahunAjaran . $idProgramFormatted . rand(10, 99); // Contoh penggabungan tahun ajaran, id_program, dan angka random
     }
 
-
+    /**
+     * @OA\Get(
+     *     path="/admin/alumni/cetak-laporan-tahunan",
+     *     tags={"Santri"},
+     *     summary="Mencetak PDF laporan tahunan alumni",
+     *     security={{"sanctum": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF berhasil dibuat dan disimpan"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Tahun Ajaran belum tersedia"
+     *     )
+     * )
+     */
     public function cetakLaporan()
     {
 

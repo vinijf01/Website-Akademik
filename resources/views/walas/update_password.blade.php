@@ -14,7 +14,8 @@
                 @php
                     $user = Auth::user();
                 @endphp
-                <form class="needs-validation forms-sample" method="POST" action="{{ route('walas.update', $user->id) }}">
+                <form class="needs-validation forms-sample" method="POST"
+                    action="{{ route('walas.put-update-password', $user->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -31,7 +32,7 @@
                         </div>
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Ubah Password</button>
-                            <a href="{{ route('dashboard-walas') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('walas.dashboard') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

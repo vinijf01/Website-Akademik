@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class VisiMisiController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -42,6 +38,6 @@ class VisiMisiController extends Controller
             'misi' => 'required',
         ]);
         $data->update($request->all());
-        return redirect()->route('admin-visi-misi.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.visi-misi.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

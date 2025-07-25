@@ -10,11 +10,6 @@ use PHPUnit\Event\Code\Test;
 
 class TentangPesantrenController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $tentang_pesantren = TentangPesantren::latest()->first();
@@ -34,7 +29,7 @@ class TentangPesantrenController extends Controller
         $tentang_pesantren = TentangPesantren::find($id);
 
         if (!$tentang_pesantren) {
-            return redirect()->route('admin-tentang-pesantren.index')->with('error', 'Data Pesantren tidak ditemukan');
+            return redirect()->route('admin.tentang-pesantren.index')->with('error', 'Data Pesantren tidak ditemukan');
         }
 
         return view('admin.tentang_pesantren.edit', [
@@ -71,7 +66,7 @@ class TentangPesantrenController extends Controller
         $tentang_pesantren->save();
 
         // Redirect
-        return redirect()->route('admin-tentang-pesantren.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.tentang-pesantren.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     // DATA KUANTITATIF
@@ -89,7 +84,7 @@ class TentangPesantrenController extends Controller
 
         Kuantitatif::create($request->all());
 
-        return redirect()->route('admin-tentang-pesantren.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.tentang-pesantren.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit_dk($id)
@@ -106,13 +101,13 @@ class TentangPesantrenController extends Controller
     {
         $data = Kuantitatif::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-tentang-pesantren.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.tentang-pesantren.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Kuantitatif::find($id);
         $data->delete();
-        return redirect()->route('admin-tentang-pesantren.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.tentang-pesantren.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

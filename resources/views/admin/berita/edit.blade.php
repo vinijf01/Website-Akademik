@@ -14,7 +14,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('admin-berita.update', $berita->id) }}" enctype="multipart/form-data">
+                    action="{{ route('admin.berita.update', $berita->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="col-lg-6 offset-2 col-md-4">
@@ -42,7 +42,7 @@
                                 alt="Current Image" style="max-width: 100px; margin-top: 10px;">
                         </div><br>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('admin-berita.index') }}" class="btn btn-danger">Batal</a>
+                        <a href="{{ route('admin.berita.index') }}" class="btn btn-danger">Batal</a>
                     </div>
             </div>
             </form>

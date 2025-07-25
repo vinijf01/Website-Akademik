@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.kelas.index', [
@@ -38,7 +33,7 @@ class KelasController extends Controller
     {
         Kelas::create($request->all());
 
-        return redirect()->route('admin-kelas.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.kelas.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -57,13 +52,13 @@ class KelasController extends Controller
     {
         $data = Kelas::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-kelas.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.kelas.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Kelas::find($id);
         $data->delete();
-        return redirect()->route('admin-kelas.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.kelas.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

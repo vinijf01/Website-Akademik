@@ -21,13 +21,13 @@
 
         <div class="menu-inner-shadow"></div>
         <li class="menu-item {{ $active === 'raport_santri' ? 'active' : '' }}">
-            <a href="{{ route('walas-raport-santri.index') }}" class="menu-link">
+            <a href="{{ route('walas.raport-santri.index') }}" class="menu-link">
                 <i class='menu-icon bx bxs-book-open'></i>
                 <div data-i18n="Basic">Raport Santri</div>
             </a>
         </li>
         <li class="menu-item {{ $active === 'hafalan' ? 'active' : '' }}">
-            <a href="{{ route('walas-hafalan-santri.index') }}" class="menu-link">
+            <a href="{{ route('walas.hafalan-santri.index') }}" class="menu-link">
                 <i class='menu-icon bx bxs-book-reader'></i>
                 <div data-i18n="Basic">Hafalan Santri</div>
             </a>

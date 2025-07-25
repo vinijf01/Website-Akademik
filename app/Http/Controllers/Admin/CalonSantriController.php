@@ -12,14 +12,14 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use TCPDF;
 
-
+/**
+ * @OA\Tag(
+ *     name="Calon Santri",
+ *     description="API untuk mengelola data calon santri"
+ * )
+ */
 class CalonSantriController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.calon_santri.index', [
@@ -43,6 +43,31 @@ class CalonSantriController extends Controller
             'program' => $program,
         ]);
     }
+
+
+    /**
+     * @OA\Get(
+     *     path="/admin/ppdb-calon-santri/detail/{id}",
+     *     summary="Detail calon santri",
+     *     tags={"Calon Santri"},
+     *     security={{"sanctum": {}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID Calon Santri",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Sukses menampilkan detail calon santri"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Calon santri tidak ditemukan"
+     *     )
+     * )
+     */
 
     public function detail($id)
     {
@@ -127,7 +152,7 @@ class CalonSantriController extends Controller
 
         $data->save();
 
-        return redirect()->route('admin-ppdb-calon-santri.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-calon-santri.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -143,8 +168,26 @@ class CalonSantriController extends Controller
 
         $data->delete();
 
-        return redirect()->route('admin-ppdb-calon-santri.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ppdb-calon-santri.index')->with('success', 'Data Berhasil Dihapus');
     }
+
+
+    /**
+     * @OA\Get(
+     *     path="/admin/ppdb-calon-santri/cetak-laporan-tahunan",
+     *     summary="Cetak laporan tahunan calon santri",
+     *     tags={"Calon Santri"},
+     *     security={{"sanctum": {}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF berhasil dibuat"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Data tahun ajaran belum tersedia"
+     *     )
+     * )
+     */
 
     public function cetakLaporan()
     {

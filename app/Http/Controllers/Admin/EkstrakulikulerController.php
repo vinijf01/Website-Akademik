@@ -9,11 +9,6 @@ use Illuminate\Support\Str;
 
 class EkstrakulikulerController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.ekstrakulikuler.index', [
@@ -50,14 +45,14 @@ class EkstrakulikulerController extends Controller
             'jam_per_periode' => $request->jam_per_periode,
             'image' => $image
         ]);
-        return redirect()->route('admin-ekstrakulikuler.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.ekstrakulikuler.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
     {
         $data = Ekstrakulikuler::find($id);
         if (!$data) {
-            return redirect()->route('admin-ekstrakulikuler.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.ekstrakulikuler.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.ekstrakulikuler.edit', [
             'title' => 'Program Ekstrakulikuler',
@@ -93,7 +88,7 @@ class EkstrakulikulerController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-ekstrakulikuler.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ekstrakulikuler.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -107,6 +102,6 @@ class EkstrakulikulerController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-ekstrakulikuler.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ekstrakulikuler.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

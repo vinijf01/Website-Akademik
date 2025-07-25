@@ -9,11 +9,6 @@ use Illuminate\Support\Str;
 
 class GaleriController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.galeri.index', [
@@ -49,7 +44,7 @@ class GaleriController extends Controller
             'foto' => $image
         ]);
 
-        return redirect()->route('admin-galeri.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.galeri.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -57,7 +52,7 @@ class GaleriController extends Controller
         $data = Galeri::find($id);
 
         if (!$data) {
-            return redirect()->route('admin-galeri.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.galeri.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.galeri.edit', [
             'title' => 'Galeri',
@@ -92,7 +87,7 @@ class GaleriController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-galeri.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.galeri.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -106,6 +101,6 @@ class GaleriController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-galeri.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.galeri.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

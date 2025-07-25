@@ -43,13 +43,17 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('parent-logout.perform') }}">
+                        <a class="dropdown-item" href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class='menu-icon bx bx-door-open me-2'></i>
                             <span class="align-middle">Log Out</span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('update-password') }}">
+                        <a class="dropdown-item" href="{{ route('parent.update-password') }}">
                             <i class='menu-icon bx bx-key me-2'></i>
                             <span class="align-middle">Ubah Password</span>
                         </a>

@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class PeminatController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.peminat.index', [
@@ -41,13 +36,13 @@ class PeminatController extends Controller
     {
         $data = Peminat::find($id);
         $data->update($request->all());
-        return redirect()->route('admin-ppdb-peminat.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-peminat.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Peminat::find($id);
         $data->delete();
-        return redirect()->route('admin-ppdb-peminat.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ppdb-peminat.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

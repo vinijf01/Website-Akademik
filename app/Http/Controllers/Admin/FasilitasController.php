@@ -9,11 +9,6 @@ use Illuminate\Support\Str;
 
 class FasilitasController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.fasilitas.index', [
@@ -50,14 +45,14 @@ class FasilitasController extends Controller
             'keterangan' => $request->keterangan,
             'image' => $image
         ]);
-        return redirect()->route('admin-fasilitas.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
     {
         $data = Fasilitas::find($id);
         if (!$data) {
-            return redirect()->route('admin-fasilitas.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.fasilitas.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.fasilitas.edit', [
             'title' => 'Fasilitas',
@@ -92,7 +87,7 @@ class FasilitasController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-fasilitas.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -106,6 +101,6 @@ class FasilitasController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-fasilitas.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.fasilitas.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

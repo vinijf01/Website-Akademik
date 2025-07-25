@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class HafalanController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'walascheckPermission']);
-    }
 
     public function index()
     {
@@ -73,7 +69,7 @@ class HafalanController extends Controller
 
         Hafalan::create($request->all());
 
-        return redirect()->route('walas-hafalan-santri.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('walas.hafalan-santri.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -107,13 +103,13 @@ class HafalanController extends Controller
     {
         $data = Hafalan::find($id);
         $data->update($request->all());
-        return redirect()->route('walas-hafalan-santri.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('walas.hafalan-santri.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = Hafalan::find($id);
         $data->delete();
-        return redirect()->route('walas-hafalan-santri.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('walas.hafalan-santri.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

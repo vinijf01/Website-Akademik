@@ -30,7 +30,7 @@
                         <td>{{ $hero_ppdb->ta }}</td>
                         <td>{{ $hero_ppdb->link_btn }}</td>
                         <td>
-                            <a href="{{ route('admin-hero-ppdb.edit', $hero_ppdb->id) }}">
+                            <a href="{{ route('admin.hero-ppdb.edit', $hero_ppdb->id) }}">
                                 <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;" title="Edit"></i>
                             </a>
                         </td>

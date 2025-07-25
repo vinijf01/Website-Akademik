@@ -42,7 +42,7 @@
                                 {{ $isi }}...
                             </td>
                             <td>
-                                <a href="{{ route('admin-kata-pengantar.edit', $item->id) }}">
+                                <a href="{{ route('admin.kata-pengantar.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>

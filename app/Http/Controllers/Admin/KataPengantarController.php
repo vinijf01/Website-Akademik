@@ -9,11 +9,6 @@ use Illuminate\Support\Str;
 
 class KataPengantarController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.kata_pengantar.index', [
@@ -50,14 +45,14 @@ class KataPengantarController extends Controller
             'kata_pengantar' => $request->kata_pengantar,
             'foto' => $image
         ]);
-        return redirect()->route('admin-kata-pengantar.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.kata-pengantar.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
     {
         $data = KataPengantar::find($id);
         if (!$data) {
-            return redirect()->route('admin-kata-pengantar.index')->with('error', 'Data tidak ditemukan');
+            return redirect()->route('admin.kata-pengantar.index')->with('error', 'Data tidak ditemukan');
         }
         return view('admin.kata_pengantar.edit', [
             'title' => 'Kata Pengantar',
@@ -92,7 +87,7 @@ class KataPengantarController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-kata-pengantar.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.kata-pengantar.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -106,6 +101,6 @@ class KataPengantarController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-kata-pengantar.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.kata-pengantar.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

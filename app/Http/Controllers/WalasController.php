@@ -37,6 +37,6 @@ class WalasController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect()->route('dashboard-walas')->with('success', 'Password berhasil diperbarui');
+        return redirect()->route('walas.dashboard')->with('success', 'Password berhasil diperbarui');
     }
 }

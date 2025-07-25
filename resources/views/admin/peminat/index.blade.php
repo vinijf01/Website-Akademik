@@ -36,7 +36,7 @@
                                     <i class='menu-icon bx bxl-whatsapp'></i>
                                 </a></td>
                             <td>
-                                <a href="{{ route('admin-ppdb-peminat.edit', $item->id) }}">
+                                <a href="{{ route('admin.ppdb-peminat.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-ppdb-peminat.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('admin.ppdb-peminat.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>

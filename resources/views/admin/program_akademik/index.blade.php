@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('admin-program-akademik.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('admin.program-akademik.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
@@ -37,7 +37,7 @@
                                 {!! $item->deskripsi !!}</td>
                             <td>{{ $item->spp }}</td>
                             <td>
-                                <a href="{{ route('admin-program-akademik.edit', $item->id) }}">
+                                <a href="{{ route('admin.program-akademik.edit', $item->id) }}">
                                     <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                         title="Edit"></i>
                                 </a>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                     <div class="modal-footer">
-                                        <form action="{{ route('admin-program-akademik.destroy', $item->id) }}"
+                                        <form action="{{ route('admin.program-akademik.destroy', $item->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')

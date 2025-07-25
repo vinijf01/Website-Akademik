@@ -14,7 +14,7 @@
         <div class="table-responsive text-nowrap">
             <div class="row">
                 <form class="needs-validation forms-sample" method="POST"
-                    action="{{ route('walas-raport-santri.update', $raport_santri[0]->id_santri) }}"
+                    action="{{ route('walas.raport-santri.update', $raport_santri[0]->id_santri) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -98,7 +98,7 @@
 
                         <div class="mb-5">
                             <button type="submit" class="btn btn-primary">Simpan</button>
-                            <a href="{{ route('walas-raport-santri.index') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('walas.raport-santri.index') }}" class="btn btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

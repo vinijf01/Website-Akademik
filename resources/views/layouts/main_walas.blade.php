@@ -34,16 +34,16 @@
 <body>
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-            @include('partials.walas.sidebar')
+            @include('partials.walas.sideWalas')
             <div class="layout-page">
-                @include('partials.walas.nav')
+                @include('partials.walas.navWalas')
 
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         @yield('content')
                     </div>
 
-                    @include('partials.admin.footer')
+                    {{-- @include('partials.admin.footer') --}}
 
                     <div class="content-backdrop fade"></div>
                 </div>

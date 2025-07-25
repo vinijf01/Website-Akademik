@@ -10,11 +10,6 @@ use Illuminate\Support\Str;
 
 class FotoProgramAkademikController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         return view('admin.foto_program_akademik.index', [
@@ -53,7 +48,7 @@ class FotoProgramAkademikController extends Controller
             'keterangan' => $request->keterangan,
             'foto' => $image
         ]);
-        return redirect()->route('admin-foto-kegiatan-program.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.foto-kegiatan-program.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -96,7 +91,7 @@ class FotoProgramAkademikController extends Controller
         }
 
         $data->save();
-        return redirect()->route('admin-foto-kegiatan-program.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.foto-kegiatan-program.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
@@ -110,6 +105,6 @@ class FotoProgramAkademikController extends Controller
             }
         }
         $data->delete();
-        return redirect()->route('admin-foto-kegiatan-program.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.foto-kegiatan-program.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

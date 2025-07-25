@@ -10,11 +10,6 @@ use Illuminate\Support\Str;
 class HeroController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
-
     public function index()
     {
         $hero = Hero::first();
@@ -31,7 +26,7 @@ class HeroController extends Controller
         $hero = Hero::find($id);
 
         if (!$hero) {
-            return redirect()->route('admin-hero.index')->with('error', 'Data Hero tidak ditemukan');
+            return redirect()->route('admin.hero.index')->with('error', 'Data Hero tidak ditemukan');
         }
 
         return view('admin.hero.edit', [
@@ -71,6 +66,6 @@ class HeroController extends Controller
         $hero->save();
 
         // Redirect
-        return redirect()->route('admin-hero.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.hero.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

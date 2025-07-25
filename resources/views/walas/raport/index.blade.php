@@ -8,7 +8,7 @@
                     <h5>{{ $title }}</h5>
                 </div>
                 <div class="col-lg-4 text-end mb-3">
-                    <a href="{{ route('walas-raport-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
+                    <a href="{{ route('walas.raport-santri.create') }}" class="btn btn-success"><i class='bx bx-plus-circle'
                             style="font-size: 1.5em"></i> Tambah
                         {{ $title }}</a>
                 </div>
@@ -38,11 +38,11 @@
                                 <td>{{ $item->santri->programAkademik->nama_program }}</td>
                                 <td>{{ $item->santri->TA }}</td>
                                 <td>
-                                    <a href="{{ route('walas-raport-santri.edit', $item->id_santri) }}">
+                                    <a href="{{ route('walas.raport-santri.edit', $item->id_santri) }}">
                                         <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;"
                                             title="Edit"></i>
                                     </a>
-                                    <a href="{{ route('data-raport.detail', $item->id_santri) }}">
+                                    <a href="{{ route('walas.raport.detail', $item->id_santri) }}">
                                         <i class='bx bxs-show crud-icon' style="font-size: 1.5em; color:blue;"
                                             title="read"></i>
                                     </a>
@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="modal-body">Apakah Anda Yakin Ingin Menghapus?</div>
                                         <div class="modal-footer">
-                                            <form action="{{ route('walas-raport-santri.destroy', $item->id_santri) }}"
+                                            <form action="{{ route('walas.raport-santri.destroy', $item->id_santri) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')

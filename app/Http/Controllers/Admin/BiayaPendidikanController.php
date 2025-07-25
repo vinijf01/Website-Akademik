@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class BiayaPendidikanController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkPermission']);
-    }
 
     public function index()
     {
@@ -37,7 +33,7 @@ class BiayaPendidikanController extends Controller
         ]);
 
         BiayaPendidikan::create($request->all());
-        return redirect()->route('admin-ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('admin.ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id)
@@ -57,13 +53,13 @@ class BiayaPendidikanController extends Controller
             'deskripsi' => 'required'
         ]);
         $data->update($request->all());
-        return redirect()->route('admin-ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('admin.ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     public function destroy($id)
     {
         $data = BiayaPendidikan::find($id);
         $data->delete();
-        return redirect()->route('admin-ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('admin.ppdb-biaya-pendidikan.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

@@ -36,7 +36,7 @@
                         <td>{{ $hero->link_ig }}</td>
                         <td>{{ $hero->link_yt }}</td>
                         <td>
-                            <a href="{{ route('admin-hero.edit', $hero->id) }}">
+                            <a href="{{ route('admin.hero.edit', $hero->id) }}">
                                 <i class='bx bx-edit crud-icon' style="font-size: 1.5em; color:green;" title="Edit"></i>
                             </a>
                         </td>
