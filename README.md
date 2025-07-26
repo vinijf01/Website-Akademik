@@ -4,7 +4,21 @@
 Sistem Informasi Website Pesantren adalah platform digital berbasis Laravel yang dirancang untuk mengelola informasi kegiatan pesantren, proses PPDB (Penerimaan Peserta Didik Baru), galeri, berita, serta progress pembelajaran santri. Proyek ini dibuat untuk mempermudah komunikasi antara pihak pesantren, orang tua, dan calon santri.
 
 ---
+## 📸 Cuplikan UI
 
+- Tampilan Beranda
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a4c5ea04-b648-45ba-99ca-415b812bb403" />
+
+- Tampilan PPDB
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/40c0ab10-c2e5-41b0-ba6c-d002b7a1368b" />
+
+- Tampilan Login Admin
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8116cbff-d796-44e3-9d81-bcd7813cc294" />
+
+- DashBoard Admin (tampilan untuk dashboard orangtua dan walas hampir saya seperti gambar dibawah namun service nya lebih sederhana)
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28dbbe8d-327a-47b9-b49e-e69ea19d809e" />
+
+---
 ## 📌 Fitur Utama
 
 ### 🔓 Halaman Publik
@@ -144,22 +158,6 @@ php artisan serve
 - Riwayat aktivitas santri per semester
 - Email notifikasi untuk PPDB
 - Dashboard grafik dinamis (charts.js atau Apex)
-
----
-
-## 📸 Cuplikan UI
-
-- Tampilan Beranda
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a4c5ea04-b648-45ba-99ca-415b812bb403" />
-
-- Tampilan PPDB
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/40c0ab10-c2e5-41b0-ba6c-d002b7a1368b" />
-
-- Tampilan Login Admin
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8116cbff-d796-44e3-9d81-bcd7813cc294" />
-
-- DashBoard Admin (tampilan untuk dashboard orangtua dan walas hampir saya seperti gambar dibawah namun service nya lebih sederhana)
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28dbbe8d-327a-47b9-b49e-e69ea19d809e" />
 
 ---
 
